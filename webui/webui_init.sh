@@ -28,6 +28,8 @@
 
 export DB_URI="mongodb://${MONGO_IP}/open5gs"
 
+sed -i "s|localhost|$MONGO_IP|" /open5gs/misc/db/open5gs-dbctl
+
 sleep 10
 cd webui
 exec npm run dev $@
