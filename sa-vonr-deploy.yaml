@@ -8,7 +8,6 @@ services:
     volumes:
       - mongodbdata:/data/db
       - mongodbdata:/data/configdb
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "27017/udp"
@@ -27,7 +26,6 @@ services:
       - COMPONENT_NAME=webui
     volumes:
       - ./webui:/mnt/webui
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "9999/tcp"
@@ -46,7 +44,6 @@ services:
     volumes:
       - ./nrf:/mnt/nrf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -65,7 +62,6 @@ services:
     volumes:
       - ./scp:/mnt/scp
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -85,7 +81,6 @@ services:
     volumes:
       - ./ausf:/mnt/ausf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -106,7 +101,6 @@ services:
     volumes:
       - ./udr:/mnt/udr
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -126,7 +120,6 @@ services:
     volumes:
       - ./udm:/mnt/udm
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -148,7 +141,6 @@ services:
     volumes:
       - ./smf:/mnt/smf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "3868/tcp"
@@ -176,7 +168,6 @@ services:
     volumes:
       - ./upf:/mnt/upf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "2152/udp"
@@ -211,7 +202,6 @@ services:
     volumes:
       - ./amf:/mnt/amf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "38412/sctp"
@@ -236,7 +226,6 @@ services:
     volumes:
       - ./pcf:/mnt/pcf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -258,7 +247,6 @@ services:
     volumes:
       - ./bsf:/mnt/bsf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -279,7 +267,6 @@ services:
     volumes:
       - ./nssf:/mnt/nssf
       - ./log:/open5gs/install/var/log/open5gs
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "7777/tcp"
@@ -294,7 +281,6 @@ services:
       - .env
     volumes:
       - ./metrics:/mnt/metrics
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "${METRICS_BIND_PORT}/tcp"
@@ -311,7 +297,6 @@ services:
       - .env
     volumes:
       - ./dns:/mnt/dns
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "53/udp"
@@ -327,7 +312,6 @@ services:
       - .env
     volumes:
       - ./rtpengine:/mnt/rtpengine
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     cap_add:
       - NET_ADMIN
@@ -354,7 +338,6 @@ services:
       - .env
     volumes:
       - dbdata:/var/lib/mysql
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     expose:
       - "3306/tcp"
@@ -369,7 +352,6 @@ services:
     volumes:
       - ./pyhss:/mnt/pyhss
       - ./pyhss/logs:/pyhss/log/
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -391,7 +373,6 @@ services:
     dns: ${DNS_IP}
     volumes:
       - ./icscf:/mnt/icscf
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -415,7 +396,6 @@ services:
     dns: ${DNS_IP}
     volumes:
       - ./scscf:/mnt/scscf
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -442,7 +422,6 @@ services:
       - NET_ADMIN
     volumes:
       - ./pcscf:/mnt/pcscf
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -473,7 +452,6 @@ services:
     dns: ${DNS_IP}
     volumes:
       - ./smsc:/mnt/smsc
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     env_file:
       - .env
@@ -497,7 +475,6 @@ services:
       - grafana_data:/var/lib/grafana
       - ./grafana/:/etc/grafana/provisioning/
       - ./grafana:/mnt/grafana
-      - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
