@@ -451,9 +451,9 @@ APN Configuration:
 #### or using cli 
 
 ```
-sudo docker exec -it hss misc/db/open5gs-dbctl add 001010123456790 8baf473f2f8fd09487cccbd7097c6862 8E27B6AF0E692E750F32667A3B14605D
+docker exec -it webui misc/db/open5gs-dbctl add_ue_with_apn 001010123456790 8baf473f2f8fd09487cccbd7097c6862 8E27B6AF0E692E750F32667A3B14605D internet
+docker exec -it webui misc/db/open5gs-dbctl update_apn 001010123456790 ims 0
 ```
-**NOTE:** Adding via CLI does not add the desired APN configuration. You need to add the APN configuration via Web UI as mentioned above.
 
 ### Provisioning of IMSI and MSISDN with OsmoHLR as follows:
 
