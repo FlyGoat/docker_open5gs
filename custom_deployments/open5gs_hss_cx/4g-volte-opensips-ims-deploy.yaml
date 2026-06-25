@@ -24,6 +24,7 @@ services:
       - .custom_env
     environment:
       - COMPONENT_NAME=webui
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     volumes:
       - ../../webui:/mnt/webui
       - /etc/localtime:/etc/localtime:ro
@@ -41,6 +42,7 @@ services:
       - .custom_env
     environment:
       - COMPONENT_NAME=hss
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     volumes:
       - ./hss:/mnt/hss
       - ./log:/open5gs/install/var/log/open5gs
@@ -184,6 +186,7 @@ services:
       - .custom_env
     environment:
       - COMPONENT_NAME=pcrf
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     depends_on:
       - mongo
     volumes:

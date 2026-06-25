@@ -24,6 +24,7 @@ services:
       - .env
     environment:
       - COMPONENT_NAME=webui
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     volumes:
       - ./webui:/mnt/webui
       - /etc/localtime:/etc/localtime:ro
@@ -98,6 +99,7 @@ services:
       - .env
     environment:
       - COMPONENT_NAME=udr
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     volumes:
       - ./udr:/mnt/udr
       - ./log:/open5gs/install/var/log/open5gs
@@ -137,6 +139,7 @@ services:
       - .env
     environment:
       - COMPONENT_NAME=pcf
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     volumes:
       - ./pcf:/mnt/pcf
       - ./log:/open5gs/install/var/log/open5gs
@@ -158,6 +161,7 @@ services:
       - .env
     environment:
       - COMPONENT_NAME=bsf
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     volumes:
       - ./bsf:/mnt/bsf
       - ./log:/open5gs/install/var/log/open5gs
@@ -194,6 +198,7 @@ services:
       - .env
     environment:
       - COMPONENT_NAME=hss
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     volumes:
       - ./hss:/mnt/hss
       - ./log:/open5gs/install/var/log/open5gs
@@ -374,6 +379,7 @@ services:
       - .env
     environment:
       - COMPONENT_NAME=pcrf
+      - DB_URI=mongodb://${MONGO_IP}/open5gs
     depends_on:
       - mongo
     volumes:
